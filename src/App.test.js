@@ -14,8 +14,21 @@ test('button has correct initial color', () => {
   // 클릭후 텍스트 변화 테스트
   expect(colorButton.textContent).toBe('Change to red');
 });
+test('initial conditions', () => {
+  render(<App />);
+  // check that the button starts out enabled
+  const colorButton = screen.getByRole('button', { name: 'Change to blue' });
+  expect(colorButton).toBeEnabled();
+  // check that the checkbox starts out unchecked
+  const checkbox = screen.getByRole('checkbox');
+  expect(checkbox).not.toBeChecked();
+
+  fireEvent.click(checkbox);
+  expect(checkbox).toBeChecked();
+});
 
 // test('button turns blue when clicked', () => {
+
 //   render(<App />);
 //   const colorButton = screen.getByRole('button', { name: 'Change to red' });
 //   expect(colorButton).toHaveStyle({ backgroundColor: 'blue' });
