@@ -15,7 +15,7 @@ test('button has correct initial color', () => {
   // 클릭후 색상 변화
   expect(colorButton).toHaveStyle({ backgroundColor: 'Mediumblue' });
   // 클릭후 텍스트 변화 테스트
-  expect(colorButton.textContent).toBe('Change to Medium Violet Red');
+  expect(colorButton).toHaveTextContent('Change to Medium Violet Red');
 
   //Medium Violet Red
   //Midnight Blue
